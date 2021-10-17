@@ -1,0 +1,17 @@
+body {
+    background-color: #0f0f0f;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;700&display=swap');
+
+@import './components/Styles/base.scss';
+@import './components/Styles/home.scss';
+@import './components/Styles/mixin.scss';
+@import './components/Styles/variables.scss';
+@import './components/Styles/login.scss';
+@import './components/Styles/btn.scss';
+@import './components/Styles/utilities.scss';
+@import './components/Styles/nav.scss';
+@import './components/Styles/movies.scss';
+@import './components/Styles/movie.scss';
+@import './components/Styles/profile.scss';
