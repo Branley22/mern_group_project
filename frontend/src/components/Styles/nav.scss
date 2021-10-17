@@ -1,40 +1,36 @@
 .navbar {
     min-height: 15vh;
     width: 100%;
-
     box-shadow: 0 0 .2rem rgba(255,255,255,.3);
-
     display: grid;
-    grid-template-columns: repeat(12,1fr);
+    grid-template-columns:1fr repeat(10,1fr) 1fr;
 
     &_img {
-        color:#fff;
-        padding: 2rem;
+        color:#b71c1c;
         outline: none;
-
-        grid-column: 1 / span 3;
-        justify-self: center;
+        margin-left: 7rem;
+        grid-column: 1 / span 2;
+        justify-self: start;
         align-self: center;
-        font-size: 5rem;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
     }
-
     &_list {
         grid-column: 4 / -1;
         display: grid;
         grid-template-columns: repeat(auto-fit,minmax(min-content, 1fr));
         overflow: hidden;
-
     }
-
     &_item{
         list-style: none;
         display: flex;
         justify-content: center;
         align-items: center;
-
-        transition: background-color 500ms;
+        transition: background-color 500ms opacity 500ms;
         &:hover {
-            background-color:#212121;
+            background-color:#b71c1c;
+
         }
     }
     &_link {
@@ -43,7 +39,6 @@
         font-size: 1.8rem;
         transition: padding 500ms;
     }
-
     &_logout {
         grid-column: 8 / span 1;
     }

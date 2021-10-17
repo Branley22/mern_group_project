@@ -10,20 +10,18 @@ const Login = () => {
 
     const login = event => {
         event.preventDefault();
-        axios.post("", {
+        axios.post("http://localhost:8000/api/users/login", {
             email: email,
             password: password,
         }, {
             withCredentials: true
         })
         .then((res) => {
-            console.log(res.cookie);
-            console.log(res);
-            console.log(res.data);
-            navigate("/movies");
+            console.log(res.data)
+            navigate("/home")
         })
         .catch( err => {
-            setErrors(err.res.data.message);
+            setErrors(err);
         });
 
     };
@@ -46,7 +44,7 @@ const Login = () => {
                     <label className="label">Password: </label>
                     <input
                         className="input"
-                        type="text"
+                        type="password"
                         name="password"
                         value={password} onChange={ (e) => setPassword(e.target.value)}/>
                 </div>

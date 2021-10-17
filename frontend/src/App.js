@@ -23,7 +23,7 @@ function App() {
           <Login path="login"/>
           <Register path="register"/>
       </Home>
-      <Dashboard path="/home">
+      <Dashboard path="home">
           <Movies path="/"/>
           <Create path="create" />
           <Movie path="movie" />

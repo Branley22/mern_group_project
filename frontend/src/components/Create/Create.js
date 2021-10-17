@@ -1,9 +1,15 @@
 import React from 'react'
-
-const Create = () => {
+import Form from '../Form/Form'
+const Create = ({movie,setMovie,errors,handleSubmit}) => {
     return (
         <div>
-            Create
+            <Form
+                movie={movie}
+                setMovie={setMovie}
+                errors={errors}
+                handleSubmit={handleSubmit}
+                submitButton={'Create Movie'}
+            />
         </div>
     )
 }
