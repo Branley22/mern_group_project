@@ -1,0 +1,59 @@
+.navbar {
+    min-height: 15vh;
+    width: 100%;
+
+    box-shadow: 0 0 .2rem rgba(255,255,255,.3);
+
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+
+    &_img {
+        color:#fff;
+        padding: 2rem;
+        outline: none;
+
+        grid-column: 1 / span 3;
+        justify-self: center;
+        align-self: center;
+        font-size: 5rem;
+    }
+
+    &_list {
+        grid-column: 4 / -1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(min-content, 1fr));
+        overflow: hidden;
+
+    }
+
+    &_item{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: background-color 500ms;
+        &:hover {
+            background-color:#212121;
+        }
+    }
+    &_link {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.8rem;
+        transition: padding 500ms;
+    }
+
+    &_logout {
+        grid-column: 8 / span 1;
+    }
+    &_profile {
+        grid-column: 7 / span 1;
+    }
+    &_create {
+        grid-column: 6 / span 1;
+    }
+    &_movies {
+        grid-column: 5 / span 1;
+    }
+}

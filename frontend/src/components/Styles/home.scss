@@ -1,0 +1,73 @@
+.home {
+    width: 100vw;
+    height: 100vh;
+    background-blend-mode: darken;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(min-content, 1fr));
+    grid-template-rows: repeat(12, minmax(min-content,1fr))
+}
+.apes {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 1;
+    background-image: url(../../img/apes.jpg);
+    background-color: rgba(0,0,0,.8);
+    background-blend-mode:overlay;
+}
+.lion {
+    grid-column: 5 / span 4;
+    background-image: url(../../img/lion.jpg);
+    z-index: 999;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    display:grid;
+    &_list {
+        display: flex;
+        justify-self: center;
+    }
+    &_item {
+        margin-left: 1rem;
+        list-style: none;
+        &:hover {
+            transform: scale(1.1)
+        }
+    }
+    &_link {
+        text-decoration: none;
+        transition: transform 500ms;
+    }
+}
+.dragon {
+    grid-column: 9 / span 4;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../img/dragon.jpg);
+    background-color: rgba(0,0,0,.8);
+    background-blend-mode:overlay;
+}
+.apes,
+.dragon,
+.lion {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    .sweet_movies{
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        background-image: linear-gradient(to right, #fff 25%, #fff 50%, darkgray 20%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        z-index: 1000;
+        text-align: center;
+
+        margin-top: 5rem;
+    }
+}

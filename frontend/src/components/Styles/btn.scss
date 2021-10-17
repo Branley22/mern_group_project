@@ -1,0 +1,16 @@
+.btn {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    box-shadow: 0 0 1rem rgba(255,255,255,.3);
+    padding: .5rem 2rem;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: transform 500ms;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}

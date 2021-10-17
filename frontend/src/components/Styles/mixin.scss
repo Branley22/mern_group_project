@@ -1,0 +1,7 @@
+@mixin frontPageObjectFit {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+}
