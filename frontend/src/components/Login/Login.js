@@ -10,20 +10,23 @@ const Login = () => {
 
     const login = event => {
         event.preventDefault();
-        axios.post("", {
-            email: email,
-            password: password,
-        }, {
+        axios.post("http://localhost:8000/api/users/login", { email, password }, {
             withCredentials: true
         })
-        .then((res) => {
-            console.log(res.cookie);
-            console.log(res);
-            console.log(res.data);
-            navigate("/movies");
+        .then( response => {
+            if(response.data.errors){
+                console.log(response.data.errors)
+                setErrors(response.data.errors)
+            }
+            else{
+                navigate("/home")
+            }
         })
         .catch( err => {
-            setErrors(err.res.data.message);
+            console.log(err.response.status);
+            if(err.response.status === 400){
+                navigate("/login");
+            }
         });
 
     };
@@ -33,6 +36,11 @@ const Login = () => {
         <div className="login">
             <h3>Login</h3>
             <form className="form" onSubmit={login}>
+                {
+                    errors.email ?
+                    <span className="errors">{errors.email.message}</span>
+                    : null
+                }
                 <div className="form_wrapper">
                     <label className="label">Email: </label>
                     <input
@@ -46,7 +54,7 @@ const Login = () => {
                     <label className="label">Password: </label>
                     <input
                         className="input"
-                        type="text"
+                        type="password"
                         name="password"
                         value={password} onChange={ (e) => setPassword(e.target.value)}/>
                 </div>

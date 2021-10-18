@@ -9,7 +9,7 @@ import {
   Movie,
   Create,
   Profile,
-  Nav
+  Edit
 } from './components';
 
 
@@ -23,11 +23,12 @@ function App() {
           <Login path="login"/>
           <Register path="register"/>
       </Home>
-      <Dashboard path="/home">
+      <Dashboard path="home">
           <Movies path="/"/>
           <Create path="create" />
-          <Movie path="movie" />
+          <Movie path="movie/:id" />
           <Profile path="profile" />
+          <Edit path="edit/:id" />
       </Dashboard>
 
       </Router>
