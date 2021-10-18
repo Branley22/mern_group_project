@@ -1,5 +1,10 @@
 body {
-    background-color: #0f0f0f;
+    background-image: url("../../../mern_group_project/frontend/src/img/it.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: rgba(0,0,0,.4);
+    background-blend-mode: darken;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;700&display=swap');
@@ -17,3 +22,6 @@ body {
 @import './components/Styles/profile.scss';
 @import './components/Styles/card.scss';
 @import './components/Styles/errors.scss';
+@import './components/Styles/button.scss';
+@import './components/Styles/create.scss';
+@import './components/Styles/edit.scss';

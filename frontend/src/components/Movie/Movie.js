@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 const Movie = () => {
+    const [ movie, setMovie ] = useState({});
+
     return (
-        <div>
+        <div className="movie">
             movie
         </div>
     )

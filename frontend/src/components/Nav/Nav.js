@@ -1,9 +1,16 @@
 import React from 'react'
 import { Link } from '@reach/router'
+import Button from '../Button/Button'
+import {navigate} from '@reach/router'
 const Nav = () => {
+
+    const onClick = () => {
+        navigate("/home")
+    }
+
     return (
         <nav className="navbar">
-            <img className="navbar_img" src="" alt="Sweet Movies" />
+            <p onClick={onClick} className="navbar_logo">sweet <span>movies</span></p>
             <ul className="navbar_list">
                 <li className="navbar_item navbar_movies">
                     <Link
@@ -20,13 +27,8 @@ const Nav = () => {
                     className="navbar_link"
                     to="./profile">Profile</Link>
                 </li>
-                <li className="navbar_item navbar_logout">
-                    <Link
-                    className="navbar_link"
-                    to="./logout">Logout</Link>
-                </li>
             </ul>
-
+            <Button name="Logout"/>
         </nav>
     )
 }

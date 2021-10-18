@@ -4,8 +4,8 @@
     background-blend-mode: darken;
     z-index: 100;
     display: grid;
-    grid-template-columns: repeat(12, minmax(min-content, 1fr));
-    grid-template-rows: repeat(12, minmax(min-content,1fr))
+    grid-template-columns: repeat(12, 1fr);
+
 }
 .apes {
     grid-column: 1 / span 4;

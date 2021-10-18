@@ -1,0 +1,13 @@
+@import '../Styles/login.scss';
+
+.create {
+    @include homeLayout;
+    grid-template-columns: max-content;
+
+}
+@media  (max-width: 600px) {
+    .create{
+        justify-content: center;
+    }
+}
+

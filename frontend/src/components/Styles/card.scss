@@ -1,12 +1,9 @@
 .card {
     outline: none;
     box-shadow: 0 0 .3rem rgba(255,255,255,0.1);
-    background-color: #0f0f0f;
-    transition: border 500ms;
-    border: .2rem solid transparent;
-    &:hover {
-        border: .2rem solid #b71c1c;
-    }
+    background-color: transparent;
+    transition: transition 500ms;
+
 
     &_img {
         width: 100%;
