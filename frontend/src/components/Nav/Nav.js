@@ -1,8 +1,23 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from '@reach/router'
 import Button from '../Button/Button'
 import {navigate} from '@reach/router'
+import axios from 'axios'
 const Nav = () => {
+    const [ user, setUser ] = useState({})
+
+    useEffect( () => {
+        axios.get('http://localhost:8000/api/users/'+ user._id, {withCredentials:true})
+        .then( (res) => {
+            console.log(res.data);
+            setUser(res.data);
+        })
+        .catch( (err) => {
+            console.log(err);
+        })
+    },[user._id])
+
+
 
     const onClick = () => {
         navigate("/home")
@@ -25,7 +40,7 @@ const Nav = () => {
                 <li className="navbar_item navbar_profile">
                     <Link
                     className="navbar_link"
-                    to="./profile">Profile</Link>
+                    to={'./profile/:id'}>Profile</Link>
                 </li>
             </ul>
             <Button name="Logout"/>

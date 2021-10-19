@@ -5,7 +5,7 @@ import { navigate } from '@reach/router';
 const Login = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
-    const [ errors, setErrors ] = useState({});
+    const [ errors, setErrors ] = useState("");
 
 
     const login = event => {
@@ -14,19 +14,11 @@ const Login = () => {
             withCredentials: true
         })
         .then( response => {
-            if(response.data.errors){
-                console.log(response.data.errors)
-                setErrors(response.data.errors)
-            }
-            else{
-                navigate("/home")
-            }
+            console.log(response.data);
+            navigate("/home")
         })
         .catch( err => {
-            console.log(err.response.status);
-            if(err.response.status === 400){
-                navigate("/login");
-            }
+            setErrors(err.response.data.message)
         });
 
     };
@@ -36,12 +28,8 @@ const Login = () => {
         <div className="login">
             <h3>Login</h3>
             <form className="form" onSubmit={login}>
-                {
-                    errors.email ?
-                    <span className="errors">{errors.email.message}</span>
-                    : null
-                }
                 <div className="form_wrapper">
+                <span className="errors">{errors ? errors : null}</span>
                     <label className="label">Email: </label>
                     <input
                         className="input"

@@ -2,7 +2,7 @@
     @include homeLayout(movie);
     color: #fff;
     grid-gap: 4rem;
-
+    position: relative;
     &_container {
         display: grid;
         align-items: center;
@@ -47,11 +47,23 @@
     }
 
     &_summary {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        letter-spacing: .1rem;
+        text-overflow: ellipsis;
+        width:85%;
     }
 }
 @media (max-width: 600px){
     .movie_title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        line-height: 150%;
+    }
+    .movie_summary {
+        width: 100%;
+        margin-top: .5rem;
+    }
+    .movie_wrapper {
+        margin-top: .5rem;
     }
 }

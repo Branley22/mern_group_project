@@ -26,7 +26,8 @@ const Register = () => {
             navigate("/home");
         })
         .catch( err => {
-            setErrors(err);
+            console.log(err.response.data.errors)
+            setErrors(err.response.data.errors);
         });
 
     };
@@ -34,11 +35,12 @@ const Register = () => {
         <div className="login">
             <h3>Register</h3>
             <form className="form" onSubmit={register}>
+
+                <div className="form_wrapper">
                 {
                     errors.username ?
                     <span className="errors">{errors.username.message}</span> : null
                 }
-                <div className="form_wrapper">
                     <label className="label">Username: </label>
                     <input
                         className="input"
@@ -47,11 +49,11 @@ const Register = () => {
                         value={username}
                         onChange={ (e) => setUsername(e.target.value)}/>
                 </div>
+                <div className="form_wrapper">
                 {
                     errors.email ?
                     <span className="errors">{errors.email.message}</span> : null
                 }
-                <div className="form_wrapper">
                     <label className="label">Email: </label>
                     <input
                         className="input"
@@ -60,11 +62,11 @@ const Register = () => {
                         value={email}
                         onChange={ (e) => setEmail(e.target.value)}/>
                 </div>
+                <div className="form_wrapper">
                 {
                     errors.password ?
                     <span className="errors">{errors.password.message}</span> : null
                 }
-                <div className="form_wrapper">
                     <label className="label">Password: </label>
                     <input
                         className="input"
@@ -72,11 +74,11 @@ const Register = () => {
                         name="password"
                         value={password} onChange={ (e) => setPassword(e.target.value)}/>
                 </div>
+                <div className="form_wrapper">
                 {
                     errors.confirmPassword ?
                     <span className="errors">{errors.confirmPassword.message}</span> : null
                 }
-                <div className="form_wrapper">
                     <label className="label">Confirm Password: </label>
                     <input
                         className="input"
