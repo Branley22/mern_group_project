@@ -1,7 +1,7 @@
 @import '../Styles/login.scss';
 
 .create {
-    @include homeLayout;
+    @include homeLayout(create);
     grid-template-columns: max-content;
 
 }

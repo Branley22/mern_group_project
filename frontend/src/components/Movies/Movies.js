@@ -1,7 +1,8 @@
-import Card from '../Card/Card'
+
 import {useEffect,useState} from 'react'
 import axios from 'axios'
 import {Link} from '@reach/router'
+import john from '../../img/john.jpg'
 const Movies = () => {
     const [ movies , setMovies ] = useState([]);
     useEffect( () => {
@@ -20,11 +21,14 @@ const Movies = () => {
         <div className="movies">
             {
                 movies.map( (movie, index) => (
-                    <div key={index}>
-                        <Link to={'./movie/'+ movie._id}>{movie.title}</Link>
-                        <img src={movie.image} alt="" />
-                    </div>
-
+                    <Link className="card_link" key={index} to={'./movie/'+ movie._id}>
+                        <div className="card">
+                            <figure className="card_figure">
+                                <img className="card_img" src={john} alt="" />
+                            </figure>
+                            <h3 className="card_title">{movie.title}</h3>
+                        </div>
+                    </Link>
                 ))
             }
         </div>

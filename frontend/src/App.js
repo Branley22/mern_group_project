@@ -23,12 +23,13 @@ function App() {
           <Login path="login"/>
           <Register path="register"/>
       </Home>
+
       <Dashboard path="home">
+        <Edit path="/edit/:id" />
           <Movies path="/"/>
           <Create path="create" />
-          <Movie path="movie/:id" />
-          <Profile path="profile" />
-          <Edit path="edit/:id" />
+          <Movie path="/movie/:id"/>
+          <Profile path="/profile" />
       </Dashboard>
 
       </Router>

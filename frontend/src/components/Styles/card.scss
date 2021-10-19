@@ -2,8 +2,18 @@
     outline: none;
     box-shadow: 0 0 .3rem rgba(255,255,255,0.1);
     background-color: transparent;
-    transition: transition 500ms;
+    border-radius: 2px;
+    transition: border 500ms;
 
+    &_link {
+        text-decoration: none;
+        border: 1px solid transparent;
+        transition: border 500ms;
+
+        &:hover {
+            border: 1px solid $primary-clr;
+        }
+    }
 
     &_img {
         width: 100%;
@@ -18,5 +28,7 @@
         color: #fff;
         padding: .5rem;
         font-size: 2rem;
+        filter: brightness(75%)
     }
+
 }
