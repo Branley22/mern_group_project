@@ -65,40 +65,68 @@ module.exports = {
 
     },
 
-    updateMovie: (req, res)=> {
+   updateMovie: (req, res)=> {
         const decodedJwt = jwt.decode(req.cookies.usertoken, {complete: true});
-            Movie.findOneAndUpdate({_id: req.params.id},
-                    req.body,
-                    {new: true, runValidators: true},
-            )
-            .then(editMovie => { 
+        const userId = decodedJwt.payload.username;
+        Movie.findOne({_id: req.params.id})
+            .then(currentId => {
+                if(currentId.createdByUserName === userId) {
 
-                    console.log("Movie has been updated");
-                    res.json(editMovie)
-            })
-            .catch((err)=>{
-                console.log("Edit movie failed");
-                res.status(400).json(err)
+
+                    Movie.findOneAndUpdate({_id: req.params.id},
+                        req.body,
+                        {new: true, runValidators: true},
+                )
+                .then(editMovie => { 
+    
+                        console.log("Movie has been updated");
+                        res.json(editMovie)
+                })
+                .catch((err)=>{
+                    console.log("Edit movie failed");
+                    res.status(400).json(err)
+                })
+
+                }
+
+                else{
+                    res.status(403).json({message: "You are not allowed to edit someone else movie"})
+                }
             })
 
 
     }, 
 
+
     deleteMovie: (req, res)=> {
 
-        Movie.deleteOne({_id: req.params.id})
-        .then((deleteMovie)=>{
-            console.log("Movie had been deleted");
-            res.json(deleteMovie)
-        })
-        .catch((err)=> { 
-            console.log("Delete movie failed");
-            res.status(400).json(err)
-        })
+        const decodedJwt = jwt.decode(req.cookies.usertoken, {complete: true});
+        const userId = decodedJwt.payload.username;
+
+        Movie.findOne({_id: req.params.id})
+            .then(currentId => {
+                if(currentId.createdByUserName === userId) {
+
+                    Movie.deleteOne({_id: req.params.id})
+                    .then((deleteMovie)=>{
+                        console.log("Movie had been deleted");
+                        res.json(deleteMovie)
+                    })
+                    .catch((err)=> { 
+                        console.log("Delete movie failed");
+                        res.status(400).json(err)
+                    })
+
+                }
+                else{
+                    res.status(403).json({message: "You are not allowed to delete someone else movie"})
+                }
+            })
+
+
+       
 
     }
-
-
 
 
 }
