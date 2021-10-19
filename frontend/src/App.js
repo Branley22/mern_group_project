@@ -29,7 +29,7 @@ function App() {
           <Movies path="/"/>
           <Create path="create" />
           <Movie path="/movie/:id"/>
-          <Profile path="/profile" />
+          <Profile path="/profile/:id" />
       </Dashboard>
 
       </Router>

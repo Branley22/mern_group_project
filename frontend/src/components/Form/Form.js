@@ -20,7 +20,7 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
         "Other"
     ]
 
-    const ratings = [
+    const rated = [
         "G",
         "PG",
         "PG-13",
@@ -43,6 +43,11 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
             <h1>Movie Form</h1>
             <form  className="form" onSubmit={ (e) => handleSubmit(e)}>
                 <div className="form_wrapper">
+                {
+                        errors.image ?
+                        <p className="errors">{errors.image.message}</p>
+                        : null
+                    }
                     <label className="label">Image</label>
                     <input
                         className="input"
@@ -52,6 +57,11 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                         onChange={ (e) => inputChange(e)} />
                 </div>
                 <div className="form_wrapper">
+                {
+                        errors.title ?
+                        <p className="errors">{errors.title.message}</p>
+                        : null
+                    }
                     <label className="label">Title: </label>
                     <input
                         className="input"
@@ -59,14 +69,14 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                         name='title'
                         value={movie.title}
                         onChange={ (e) => inputChange(e)} />
-                                            {
-                        errors.title ?
-                        <p className="errors">{errors.title.message}</p>
-                        : null
-                    }
                 </div>
 
                 <div className="form_wrapper">
+                {
+                        errors.producer ?
+                        <p className="errors">{errors.producer.message}</p>
+                        : null
+                    }
                     <label className="label">Producer: </label>
                     <input
                         className="input"
@@ -74,14 +84,14 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                         name='producer'
                         value={movie.producer}
                         onChange={ (e) => inputChange(e)} />
-                                            {
-                        errors.producer ?
-                        <p className="errors">{errors.producer.message}</p>
-                        : null
-                    }
                 </div>
 
                 <div className="form_wrapper">
+                {
+                        errors.length ?
+                        <p className="errors">{errors.length.message}</p>
+                        : null
+                    }
                     <label className="label">Movie Length (minutes): </label>
                     <input
                         className="input"
@@ -90,19 +100,20 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                         name='length'
                         value={movie.length}
                         onChange={ (e) => inputChange(e)} />
-                                            {
-                        errors.length ?
-                        <p className="errors">{errors.length.message}</p>
-                        : null
-                    }
                 </div>
 
 
                 <div className="test">
 
                 <div className="form_wrapper genre">
+                {
+                        errors.genre ?
+                        <p className="errors">{errors.genre.message}</p>
+                        : null
+                    }
                     <label className="label">Genre: </label>
                     <select
+                        className="input"
                         name='genre'
                         value={movie.genre}
                         onChange={ (e) => inputChange(e)}>
@@ -113,32 +124,28 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                                 ))
                             }
                     </select>
-                    {
-                        errors.genre ?
-                        <p className="errors">{errors.genre.message}</p>
-                        : null
-                    }
                 </div>
 
 
                 <div className="form_wrapper rating">
+                {
+                        errors.rated ?
+                        <p className="errors">{errors.rated.message}</p>
+                        : null
+                    }
                     <label className="label">Rating: </label>
                     <select
+                        className="input"
                         name='rated'
                         value={movie.rated}
                         onChange={ (e) => inputChange(e)}>
                             <option value=""></option>
                             {
-                                ratings.map( (movieRating) => (
-                                    <option value={movieRating} key={movieRating}>{movieRating}</option>
+                                rated.map( (r) => (
+                                    <option value={r} key={r}>{r}</option>
                                 ))
                             }
                     </select>
-                    {
-                        errors.rated ?
-                        <p className="errors">{errors.rated.message}</p>
-                        : null
-                    }
                 </div>
 
                 </div>

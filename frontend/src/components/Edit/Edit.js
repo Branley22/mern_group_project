@@ -5,7 +5,17 @@ import Form from '../Form/Form';
 
 const Edit = ({id}) => {
     const [ errors, setErrors ] = useState({});
-    const [ movie, setMovie ] = useState({})
+    const [ movie, setMovie ] = useState({
+        title: '',
+        rated: '',
+        genre: '',
+        length: '',
+        img: '',
+        producer: '',
+        summary: '',
+        user_id: '',
+        createdByUserName: ''
+    })
 
 
     useEffect( () => {
@@ -24,14 +34,21 @@ const Edit = ({id}) => {
         axios.put('http://localhost:8000/api/movies/' + id , movie)
             .then( (res) => {
                 console.log(res.data);
-                if(res.data.errors){
-                    setErrors(res.data.errors)
-                } else{
-                    navigate('./movie/'+ id)
-                }
+                setMovie({
+                    title: '',
+                    rated: '',
+                    genre: '',
+                    length: '',
+                    img: '',
+                    producer: '',
+                    summary: '',
+                    user_id: '',
+                    createdByUserName: ''
+                })
+                    navigate('/home')
             })
             .catch( (err) => {
-                console.log(err);
+                console.log(err.response.data.errors);
             })
     }
     return (
