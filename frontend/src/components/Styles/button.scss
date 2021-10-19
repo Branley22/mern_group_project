@@ -11,8 +11,31 @@
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
+    filter: brightness(70%);
     &:hover {
         background-color:#ff8f00;
+    }
+}
+
+.delete {
+    transition: background-color 500ms;
+    border-radius: 2px;
+    box-shadow: 0 0 .1rem rgba(255,255,255,.2);
+    &:hover {
+        background-color: $primary-clr;
+    }
+}
+
+.movie_edit {
+    border-radius: 2px;
+    box-shadow: 0 0 .1rem rgba(255,255,255,.2);
+}
+.return {
+    border-radius: 2px;
+    box-shadow: 0 0 .1rem rgba(255,255,255,.2);
+    transition: background-color 500ms;
+    &:hover {
+        background-color: darkgray;
     }
 }
 

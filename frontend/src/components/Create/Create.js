@@ -44,7 +44,6 @@ const Create = () => {
                 handleSubmit={handleSubmit}
                 submitButton={'Create Movie'}
             />
-
         </div>
     )
 }

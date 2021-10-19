@@ -98,6 +98,7 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                 </div>
 
 
+                <div className="test">
 
                 <div className="form_wrapper genre">
                     <label className="label">Genre: </label>
@@ -138,6 +139,8 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                         <p className="errors">{errors.rated.message}</p>
                         : null
                     }
+                </div>
+
                 </div>
 
                 <div className="form_wrapper">

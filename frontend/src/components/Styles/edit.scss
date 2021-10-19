@@ -1,4 +1,5 @@
 .edit {
-    @include homeLayout;
+    @include homeLayout(edit);
     color: #fff;
+    grid-template-columns: max-content;
 }

@@ -6,9 +6,14 @@
     background-position: center;
 }
 
-@mixin homeLayout {
+@mixin homeLayout($page) {
     padding: 7rem;
     display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(30rem,1fr));
     grid-gap: 5rem;
+    @if  $page == movies or $page == movie {
+        grid-template-columns:repeat(auto-fit, minmax(30rem,1fr));
+    }
+    @if $page == edit or $page == create or $page == profile {
+        grid-template-columns: max-content;
+    }
 }

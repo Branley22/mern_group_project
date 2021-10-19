@@ -1,3 +1,4 @@
 .profile {
-    @include homeLayout
+    @include homeLayout(profile);
+    color: #fff;
 }
