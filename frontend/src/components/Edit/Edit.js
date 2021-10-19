@@ -5,52 +5,31 @@ import Form from '../Form/Form';
 
 const Edit = ({id}) => {
     const [ errors, setErrors ] = useState({});
-    const [ movie, setMovie ] = useState({
-        title: '',
-        rated: '',
-        genre: '',
-        length: '',
-        img: '',
-        producer: '',
-        summary: '',
-        user_id: '',
-        createdByUserName: ''
-    })
-
+    const [ movie, setMovie ] = useState({})
 
     useEffect( () => {
-        axios.get('http://localhost:8000/api/movies/' + id, {withCredentials:true})
+        axios.get('http://localhost:8000/api/movies/'+ id)
             .then( res => {
-                console.log(res.data)
                 setMovie(res.data)
             })
             .catch( err => {
-                console.log(err)
+
             })
-    }, [id])
+    })
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put('http://localhost:8000/api/movies/' + id , movie)
-            .then( (res) => {
-                console.log(res.data);
-                setMovie({
-                    title: '',
-                    rated: '',
-                    genre: '',
-                    length: '',
-                    img: '',
-                    producer: '',
-                    summary: '',
-                    user_id: '',
-                    createdByUserName: ''
-                })
-                    navigate('/home')
+        axios.put("htt://localhost:8000/api/movies/"+ id, movie)
+            .then( res => {
+                console.log(res.data)
+                navigate('/movie/'+ id)
             })
-            .catch( (err) => {
-                console.log(err.response.data.errors);
+            .catch( err => {
+
+
             })
     }
+
     return (
         <div className="edit">
             <Form

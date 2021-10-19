@@ -40,7 +40,7 @@ const Nav = () => {
                 <li className="navbar_item navbar_profile">
                     <Link
                     className="navbar_link"
-                    to={'./profile/'+ user.id}>Profile</Link>
+                    to={'./profile/:id'}>Profile</Link>
                 </li>
             </ul>
             <Button name="Logout"/>

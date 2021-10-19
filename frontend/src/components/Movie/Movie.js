@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import avenger from '../../img/avengers.jpg'
-import {navigate, Link} from '@reach/router'
+import {navigate, Link, Router} from '@reach/router'
 import Delete from '../Delete/Delete'
+import Edit from '../Edit/Edit'
 const Movie = ({id, children}) => {
     const [ movie, setMovie ] = useState({});
     useEffect( () => {
@@ -41,8 +42,9 @@ const Movie = ({id, children}) => {
                     <p className="movie_length">Length: {movie.length} mins</p>
                 </div>
                 <p className="movie_summary">Summary: {movie.summary}</p>
+
                 <div>
-                <Link to={'/edit/' + movie._id}>
+                <Link to={'./edit/'+movie._id}>
                 <button
                 className="button margin-right-sm movie_edit">Edit</button>
                 </Link>
@@ -50,7 +52,6 @@ const Movie = ({id, children}) => {
                 <button onClick={returnHome} className="button return">Return</button>
                 </div>
             </div>
-            {children}
         </div>
     )
 }

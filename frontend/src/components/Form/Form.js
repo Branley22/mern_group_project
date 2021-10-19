@@ -128,11 +128,6 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
 
 
                 <div className="form_wrapper rating">
-                {
-                        errors.rated ?
-                        <p className="errors">{errors.rated.message}</p>
-                        : null
-                    }
                     <label className="label">Rating: </label>
                     <select
                         className="input"
