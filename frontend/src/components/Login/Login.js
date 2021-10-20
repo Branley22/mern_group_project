@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios';
 import { navigate } from '@reach/router';
 
-const Login = () => {
+const Login = (props) => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ errors, setErrors ] = useState("");
@@ -14,10 +14,14 @@ const Login = () => {
             withCredentials: true
         })
         .then( response => {
-            console.log(response.data);
-            navigate("/home")
+            localStorage.setItem("userId", response.data.userId)
+                navigate("/home")
         })
         .catch( err => {
+            console.log(err.response.status);
+            if(err.response.status === 400){
+                navigate('/login');
+            }
             setErrors(err.response.data.message)
         });
 

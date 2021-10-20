@@ -1,43 +1,57 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { navigate} from '@reach/router'
+import { navigate, Redirect} from '@reach/router'
 import Form from '../Form/Form';
-
 const Edit = ({id}) => {
     const [ errors, setErrors ] = useState({});
-    const [ movie, setMovie ] = useState({})
+    const [ movie, setMovie ] = useState({
+        title: "",
+        producer: "",
+        length: "",
+        genre: "",
+        rated: "",
+        summary: ""
+
+    })
 
     useEffect( () => {
-        axios.get('http://localhost:8000/api/movies/'+ id)
-            .then( res => {
-                setMovie(res.data)
+        axios.get(`http://localhost:8000/api/movies/${id}`,{withCredentials:true})
+            .then( (res) => {
+                console.log(res.data)
+                setMovie(res.data);
             })
-            .catch( err => {
-
+            .catch( (err) => {
+                console.log(err);
             })
-    })
+    }, [id])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put("htt://localhost:8000/api/movies/"+ id, movie)
-            .then( res => {
-                console.log(res.data)
-                navigate('/movie/'+ id)
+        axios.put('http://localhost:8000/api/movies/' + id, movie, {withCredentials:true})
+            .then( (res) => {
+                console.log(res.data);
+                if(res.data.errors){
+                    setErrors(res.data.errors)
+                } else{
+                    navigate('/home')
+                }
             })
-            .catch( err => {
-
-
+            .catch( (err) => {
+                console.log(err);
             })
     }
 
+
     return (
         <div className="edit">
-            <Form
-                movie={movie}
-                setMovie={setMovie}
-                errors={errors}
-                handleSubmit={handleSubmit}
-                submitButton={'Edit Movie'}
+            <p className="choose">You are editing: <span id="title">{movie.title}</span></p>
+        <Form
+            form={"Edit Form"}
+            movie={movie}
+            setMovie={setMovie}
+            errors={errors}
+            handleSubmit={handleSubmit}
+            submitButton={"Edit"}
             />
         </div>
     )

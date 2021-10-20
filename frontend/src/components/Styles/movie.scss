@@ -9,7 +9,6 @@
     }
 
     &_img {
-        border-radius: 2px;
         display: block;
         object-fit: cover;
         background-position: center;
@@ -31,8 +30,7 @@
 
     &_wrapper {
         display: flex;
-        font-size: 1.2rem;
-
+        font-size: 1.4rem;
         &_rated, &_genre, &_length {
             filter: brightness(70%);
         }
