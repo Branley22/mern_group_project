@@ -2,3 +2,52 @@
     @include homeLayout(profile);
     color: #fff;
 }
+
+.user {
+    font-size: 3rem;
+    text-transform: uppercase;
+    padding: 0 7rem;
+    margin-top: 7rem;
+    color: #fff;
+    letter-spacing: .1rem;
+    filter: brightness(80%);
+
+}
+
+#user {
+    color: $primary-clr;
+    font-weight: bold;
+    animation: pulsar 2000ms ease-in-out alternate-reverse infinite;
+}
+@keyframes pulsar {
+    0% {
+        background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+        background-clip: text;
+        color: transparent;
+    }
+    25%{
+        background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+        linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+        linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+        background-clip: text;
+        color: transparent;
+    }
+    50%{
+        background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+        linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+        linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+        background-clip: text;
+        color: transparent;
+    }
+
+    75%{
+        background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+        linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+        linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+        background-clip: text;
+        color: transparent;
+    }
+
+}

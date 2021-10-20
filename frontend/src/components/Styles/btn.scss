@@ -2,15 +2,16 @@
     outline: none;
     border: none;
     background-color: transparent;
-    box-shadow: 0 0 1rem rgba(255,255,255,.3);
-    padding: .5rem 2rem;
+    border: .1rem solid rgba(255,255,255,.3);
+    padding: 1rem 2rem;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
     border-radius: 5px;
     text-transform: uppercase;
+    position: relative;
     transition: transform 500ms;
 }
 
-.btn:hover {
-    transform: scale(1.1);
+.btn:hover{
+    transform: scale(1.05);
 }

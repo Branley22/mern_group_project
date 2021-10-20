@@ -3,3 +3,17 @@
     color: #fff;
     grid-template-columns: max-content;
 }
+
+.choose {
+    font-size: 2rem;
+    color: $primary-clr;
+    text-transform: uppercase;
+}
+#title{
+    font-weight: bold;
+}
+@media  (max-width: 600px) {
+    .edit{
+        justify-content: center;
+    }
+}

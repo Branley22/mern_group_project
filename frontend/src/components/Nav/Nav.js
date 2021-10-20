@@ -4,19 +4,14 @@ import Button from '../Button/Button'
 import {navigate} from '@reach/router'
 import axios from 'axios'
 const Nav = () => {
-    const [ user, setUser ] = useState({})
 
-    useEffect( () => {
-        axios.get('http://localhost:8000/api/users/'+ user._id, {withCredentials:true})
-        .then( (res) => {
-            console.log(res.data);
-            setUser(res.data);
-        })
-        .catch( (err) => {
-            console.log(err);
-        })
-    },[user._id])
+    const [currentUser, setCurrentUser] = useState("");
 
+
+
+    useEffect(()=>{
+        setCurrentUser(localStorage.getItem("userId"));
+    }, [])
 
 
     const onClick = () => {
@@ -40,10 +35,10 @@ const Nav = () => {
                 <li className="navbar_item navbar_profile">
                     <Link
                     className="navbar_link"
-                    to={'./profile/:id'}>Profile</Link>
+                    to={`./profile/${currentUser}`}>Profile</Link>
                 </li>
             </ul>
-            <Button name="Logout"/>
+            <Button name="Logout"/> 
         </nav>
     )
 }

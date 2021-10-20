@@ -9,7 +9,7 @@ const MovieSchema = new mongoose.Schema({
         required: [true, "Title is required"]
     },
 
-    rated: { 
+    rated: {
         type: String,
         enum: [
             "G",
@@ -41,12 +41,12 @@ const MovieSchema = new mongoose.Schema({
         ]
     },
 
-    length: { 
+    length: {
         type: String
     },
 
-    image: { 
-        type: String, 
+    image: {
+        type: String,
         required: [true, "Image is required"]
     },
 
@@ -55,7 +55,7 @@ const MovieSchema = new mongoose.Schema({
     },
 
     summary: {
-        type: String, 
+        type: String,
         required: [true, "Summary is required"]
     },
 

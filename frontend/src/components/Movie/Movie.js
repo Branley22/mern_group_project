@@ -5,7 +5,9 @@ import {navigate, Link, Router} from '@reach/router'
 import Delete from '../Delete/Delete'
 import Edit from '../Edit/Edit'
 const Movie = ({id, children}) => {
+
     const [ movie, setMovie ] = useState({});
+
     useEffect( () => {
         axios.get("http://localhost:8000/api/movies/" + id, {withCredentials:true})
         .then( (res) => {
@@ -21,9 +23,6 @@ const Movie = ({id, children}) => {
         navigate("/home")
     }
 
-    const toEdit =() => {
-        navigate("/edit/" + id);
-    }
     const afterDeleteHandler = () => {
         navigate('/home');
     }
@@ -44,11 +43,11 @@ const Movie = ({id, children}) => {
                 <p className="movie_summary">Summary: {movie.summary}</p>
 
                 <div>
-                <Link to={'./edit/'+movie._id}>
+                {/* <Link to={'./edit/'+movie._id}>
                 <button
                 className="button margin-right-sm movie_edit">Edit</button>
                 </Link>
-                <Delete id={id} afterDeleteHandler={afterDeleteHandler}/>
+                <Delete id={id} afterDeleteHandler={afterDeleteHandler}/> */}
                 <button onClick={returnHome} className="button return">Return</button>
                 </div>
             </div>

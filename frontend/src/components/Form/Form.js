@@ -1,7 +1,5 @@
 
-import {navigate} from '@reach/router'
-
-const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
+const Form = ({movie, setMovie, errors, handleSubmit, submitButton, form}) => {
 
     const genres = [
         "Action",
@@ -40,7 +38,7 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
     }
     return (
         <div className="login">
-            <h1>Movie Form</h1>
+            <h1>{form}</h1>
             <form  className="form" onSubmit={ (e) => handleSubmit(e)}>
                 <div className="form_wrapper">
                 {
@@ -53,7 +51,6 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                         className="input"
                         type='file'
                         name='image'
-                        value={movie.image}
                         onChange={ (e) => inputChange(e)} />
                 </div>
                 <div className="form_wrapper">
@@ -120,7 +117,7 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                             <option value=""></option>
                             {
                                 genres.map( (movieGenre) => (
-                                    <option value={movieGenre} key={movieGenre}>{movieGenre}</option>
+                                    <option key={movieGenre}>{movieGenre}</option>
                                 ))
                             }
                     </select>
@@ -137,7 +134,7 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                             <option value=""></option>
                             {
                                 rated.map( (r) => (
-                                    <option value={r} key={r}>{r}</option>
+                                    <option  key={r}>{r}</option>
                                 ))
                             }
                     </select>
@@ -146,6 +143,11 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                 </div>
 
                 <div className="form_wrapper">
+                {
+                        errors.summary ?
+                        <p className="errors">{errors.summary.message}</p>
+                        : null
+                    }
                     <label className="label">Summary</label>
                     <input
                         className="input"
@@ -153,11 +155,6 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton}) => {
                         name='summary'
                         value={movie.summary}
                         onChange={ (e) => inputChange(e)} />
-                                            {
-                        errors.summary ?
-                        <p className="errors">{errors.summary.message}</p>
-                        : null
-                    }
                 </div>
                 <button className="btn margin-top-sm" type='submit'>{submitButton}</button>
             </form>

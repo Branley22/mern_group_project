@@ -4,15 +4,14 @@
     background-color: transparent;
     border-radius: 2px;
     transition: border 500ms;
-
+    border: 1px solid transparent;
+    transition: border 500ms;
+    &:hover {
+        border: 1px solid $primary-clr;
+    }
     &_link {
         text-decoration: none;
-        border: 1px solid transparent;
-        transition: border 500ms;
 
-        &:hover {
-            border: 1px solid $primary-clr;
-        }
     }
 
     &_img {

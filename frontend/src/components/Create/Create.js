@@ -12,7 +12,7 @@ const Create = () => {
         img: '',
         producer: '',
         summary: '',
-        user_id: '',
+        user_id: {},
         createdByUserName: ''
     })
 
@@ -20,19 +20,9 @@ const Create = () => {
         e.preventDefault();
         axios.post("http://localhost:8000/api/movies", movie, {withCredentials:true})
         .then( (res) => {
-            console.log(res.data);
-            setMovie({
-                title: '',
-                rated: '',
-                genre: '',
-                length: '',
-                img: '',
-                producer: '',
-                summary: '',
-                user_id: '',
-                createdByUserName: ''
-            })
-            navigate('/home')
+            console.log(res.data)
+                navigate("/home")
+
         })
         .catch( (err) => {
             console.log(err.response.data.errors);
@@ -43,6 +33,7 @@ const Create = () => {
     return (
         <div className="create">
             <Form
+                form={"Movie Form"}
                 movie={movie}
                 setMovie={setMovie}
                 errors={errors}

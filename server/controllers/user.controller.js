@@ -6,15 +6,15 @@ module.exports = {
 
     register: (req , res)=>{
         console.log(req.body);
-        
+
         const user = new User(req.body);
 
         user.save()
             .then((newUser)=>{ 
                 console.log(newUser);
-                console.log("Successfuly registered!");
+                console.log("Successfully registered!");
                 res.json({
-                    successMessage:"Thank you for registering", 
+                    successMessage:"Thank you for registering",
                     user: newUser
                 })
             })
@@ -92,6 +92,7 @@ module.exports = {
             res.status(400).json(err);
         })
 
-    }
+    },
+
 }
 
