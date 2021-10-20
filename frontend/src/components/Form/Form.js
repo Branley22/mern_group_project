@@ -1,3 +1,4 @@
+import { navigate } from "@reach/router"
 
 const Form = ({movie, setMovie, errors, handleSubmit, submitButton, form}) => {
 
@@ -36,6 +37,7 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton, form}) => {
         setMovie(newMovieObject);
         console.log("success");
     }
+
     return (
         <div className="login">
             <h1>{form}</h1>
@@ -156,7 +158,10 @@ const Form = ({movie, setMovie, errors, handleSubmit, submitButton, form}) => {
                         value={movie.summary}
                         onChange={ (e) => inputChange(e)} />
                 </div>
+                <div id="actions">
                 <button className="btn margin-top-sm" type='submit'>{submitButton}</button>
+
+                </div>
             </form>
         </div>
     )

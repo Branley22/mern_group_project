@@ -7,7 +7,7 @@ const Home = ({children}) => {
         <div className="home">
 
             <div className="apes">
-                <h1 className="sweet_movies">sweet</h1>
+
             </div>
 
             <div className="lion">
@@ -27,7 +27,7 @@ const Home = ({children}) => {
             </div>
 
             <div className="dragon" >
-            <h1 className="sweet_movies">movies</h1>
+
             </div>
 
         </div>

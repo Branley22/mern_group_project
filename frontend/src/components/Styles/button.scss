@@ -20,7 +20,6 @@
 .delete {
     transition: background-color 500ms;
     border-radius: 2px;
-    box-shadow: 0 0 .1rem rgba(255,255,255,.2);
     &:hover {
         background-color: $primary-clr;
     }

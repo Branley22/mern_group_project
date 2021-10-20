@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { navigate} from '@reach/router'
+import { navigate, Redirect} from '@reach/router'
 import Form from '../Form/Form';
 const Edit = ({id}) => {
     const [ errors, setErrors ] = useState({});
@@ -40,6 +40,8 @@ const Edit = ({id}) => {
                 console.log(err);
             })
     }
+
+
     return (
         <div className="edit">
             <p className="choose">You are editing: <span id="title">{movie.title}</span></p>

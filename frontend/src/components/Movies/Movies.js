@@ -28,9 +28,9 @@ const Movies = ({id}) => {
                     <figure className="card_figure">
                         <img className="card_img" src={john} alt="" />
                     </figure>
-                    <div className="movies_actions">
                     <Link className="card_link card_title" key={index} to={'./movie/'+ movie._id}>{movie.title}
                     </Link>
+                    <div className="movies_actions">
                     {/* <Link to={'./edit/'+ movie._id}>
                     <button
                     className="button margin-right-sm movie_edit">Edit</button>

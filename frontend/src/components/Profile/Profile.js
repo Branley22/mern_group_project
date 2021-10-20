@@ -33,9 +33,6 @@ const Profile = ({id, children}) => {
         })
     }, [id])
 
-    const afterDeleteHandler = () => {
-        navigate('/home');
-    }
     const returnHome =()=> {
         navigate("/home")
     }
@@ -66,7 +63,11 @@ const Profile = ({id, children}) => {
                             <button
                             className="button margin-right-sm movie_edit">Edit</button>
                             </Link>
-                            <Delete id={id} afterDeleteHandler={afterDeleteHandler}/>
+                            <Link to={`/delete/${movie._id}`}>
+                            <button
+                            className="button margin-right-sm delete">Delete</button>
+                            </Link>
+                            {/* <Delete id={id} afterDeleteHandler={afterDeleteHandler}/> */}
                             <button onClick={returnHome} className="button return">Return</button>
                             </div>
                         </div>
