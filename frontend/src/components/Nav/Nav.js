@@ -20,7 +20,7 @@ const Nav = () => {
 
     return (
         <nav className="navbar">
-            <p onClick={onClick} className="navbar_logo">sweet <span>movies</span></p>
+            <p onClick={onClick} className="navbar_logo">sweet movies</p>
             <ul className="navbar_list">
                 <li className="navbar_item navbar_movies">
                     <Link
