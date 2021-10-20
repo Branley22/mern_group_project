@@ -46,6 +46,7 @@ const Edit = ({id}) => {
         <div className="edit">
             <p className="choose">You are editing: <span id="title">{movie.title}</span></p>
         <Form
+            return={"return"}
             form={"Edit Form"}
             movie={movie}
             setMovie={setMovie}

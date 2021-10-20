@@ -22,6 +22,12 @@
         font-size: 3rem;
         text-transform:uppercase ;
         filter: brightness(75%);
+        justify-self: start;
+        background:
+            linear-gradient(135deg, #C6FFDD 35%, #FBD786 45%, #f7797d 75%);
+        background-clip: text;
+        color:transparent;
+        animation: user 4000ms ease-out alternate-reverse infinite;
     }
 
     &_producer {
@@ -48,8 +54,6 @@
         font-size: 1.4rem;
         line-height: 1.5;
         letter-spacing: .1rem;
-        text-overflow: ellipsis;
-        width:85%;
     }
 }
 @media (max-width: 600px){
@@ -64,4 +68,8 @@
     .movie_wrapper {
         margin-top: .5rem;
     }
+}
+
+@keyframes title {
+
 }

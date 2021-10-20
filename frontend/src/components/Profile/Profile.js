@@ -46,14 +46,14 @@ const Profile = ({id, children}) => {
                     <div key={index} className="movie userMovies">
                         <figure>
                             <img className="movie_img" src={starwar} alt=""/>
-                            <span>Created By: {movie.createdByUserName}</span>
+                            <span className="created_by">Created By: {movie.createdByUserName}</span>
                         </figure>
                         <div className="movie_container">
                             <h3 className="movie_title">{movie.title}</h3>
                             <p className="movie_producer">Producer: {movie.producer}</p>
                             <div className="movie_wrapper">
-                                <p className="movie_rated margin-right-sm">Rated: ${movie.rated}</p>
-                                <p className="movie_genre margin-right-sm">Genre: ${movie.genre}</p>
+                                <p className="movie_rated margin-right-sm">Rated: {movie.rated}</p>
+                                <p className="movie_genre margin-right-sm">Genre: {movie.genre}</p>
                                 <p className="movie_length">Length: {movie.length} mins</p>
                             </div>
                             <p className="movie_summary">Summary: {movie.summary}</p>
